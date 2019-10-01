@@ -5,15 +5,25 @@
 <meta charset='utf-8' />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body oncontextmenu="return false;">
 <style>
-#ctx{
-  touch-action: manipulation;
+body{
+margin: 0;
+}
+*{
+  touch-action: manipulation !important;
+}
+.mobile{
+
 }
 </style>
 <canvas id="ctx" width="1000" height="600"></canvas>
-
+<div class="mobile"></div>
 <script> 
+$(document).ready(function(){
+var mobH = $(window).height() - 600;
+$(".mobile").height(mobH);
+});
 var ctx = document.getElementById("ctx").getContext("2d"); 
 var snd = new Audio("bgr.mp3");
 var slap = new Audio("slap.mp3");
